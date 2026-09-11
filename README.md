@@ -9,13 +9,16 @@
 
 | ファイル | 役割 |
 |---|---|
-| `index.html` | `釣りタックルナビ.html` へのリダイレクト（サイトの入口） |
-| `釣りタックルナビ.html` | アプリ本体（自己完結の単一HTML、画像はbase64埋め込み） |
+| `index.html` | アプリ本体（自己完結の単一HTML、画像はbase64埋め込み）。サイトの入口はこのファイル |
+| `釣りタックルナビ.html` | 旧URL互換のための `index.html` へのリダイレクト（中身は空）|
 | `privacy.html` | プライバシーポリシー |
-| `ads.txt` | Google AdSense 用（承認後に設置） |
+| `ads.txt` | Google AdSense 用 |
+
+**注意**: AdSense のポリシー上、中身のない「転送だけの画面」に広告コードを置くとポリシー違反になります。
+そのため本体は必ず `index.html` に置き、`釣りタックルナビ.html` 側には AdSense コードを入れないでください。
 
 ## 開発について
 
 アプリ本体の編集は、開発用リポジトリ
 [`fishing-tackle-navi`](https://github.com/FishAngler-HUB/fishing-tackle-navi)
-側で行い、完成した `釣りタックルナビ.html` をこのリポジトリへ反映します。
+の `釣りタックルナビ.html` で行い、完成したら中身をこのリポジトリの **`index.html`** に反映します。
