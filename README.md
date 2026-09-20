@@ -22,3 +22,15 @@
 アプリ本体の編集は、開発用リポジトリ
 [`fishing-tackle-navi`](https://github.com/FishAngler-HUB/fishing-tackle-navi)
 の `釣りタックルナビ.html` で行い、完成したら中身をこのリポジトリの **`index.html`** に反映します。
+
+
+## 公開前設定メモ
+
+- 釣り便利ツール4種は未公開のため、共通フッターではリンクなしの「近日公開」表示です。公開後は `assets/site-footer.js` のツール項目へURLを設定してください。
+- プライバシーポリシー確認に使用したGoogle公式情報：
+  - https://support.google.com/adsense/answer/1348695
+  - https://support.google.com/adsense/answer/7549925
+  - https://support.google.com/adsense/answer/10502938
+  - https://policies.google.com/technologies/cookies
+  - https://policies.google.com/technologies/ads
+  - https://myadcenter.google.com/
