@@ -9,9 +9,9 @@
     ['ロックフィッシュ','rockfish/'],['バス釣り','bass/'],['サビキ釣り','sabiki/'],['投げ釣り','surf-casting/'],
     ['タイラバ','tairaba/'],['イカメタル','ikametaru/'],['バチコンアジング','bachikon/']
   ];
-  var tools=['ライン・リーダー号数ナビ','リール糸巻き計算機','ノット選択ナビ','クーラーボックス容量ナビ'];
+  var tools=[['ライン・リーダー号数早見表','tools/line-leader/'],['リール糸巻き計算機','tools/reel-capacity/'],['ノット選択ナビ','tools/knot-selector/'],['クーラーボックス容量ナビ','tools/cooler-navi/']];
   var guideLinks=guides.map(function(item){return '<li><a href="'+url(item[1])+'">'+item[0]+'</a></li>';}).join('');
-  var toolItems=tools.map(function(name){return '<li class="global-footer__soon"><span>'+name+'</span><span class="global-footer__badge">近日公開</span></li>';}).join('');
+  var toolItems=tools.map(function(item){return '<li><a href="'+url(item[1])+'">'+item[0]+'</a></li>';}).join('');
   var footer=document.querySelector('footer');
   if(!footer){footer=document.createElement('footer');document.body.appendChild(footer);}
   footer.className='global-footer';

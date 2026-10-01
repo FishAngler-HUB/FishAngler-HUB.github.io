@@ -34,3 +34,6 @@
   - https://policies.google.com/technologies/cookies
   - https://policies.google.com/technologies/ads
   - https://myadcenter.google.com/
+
+## 釣り便利ツール
+公開予定URL: https://fishangler-hub.github.io/tools/ 。tools/ には実行に必要なHTML・CSS・JavaScript・画像のみ配置。制作元は隣接する釣り便利ツールフォルダ。公開版にはcanonical・OGPとindex,followを設定。既存サイトとフッターで相互リンク。tools/ を更新する際は制作元で全テストを実行し、公開用SEO・フッターとの差分を維持してください。
