@@ -225,6 +225,7 @@
   @media(min-width:980px){ .type-grid{grid-template-columns:repeat(4, minmax(0,1fr)); gap:18px;} }
 
   .type-card{
+    text-decoration:none; color:var(--ink);
     background:var(--paper);
     border:1px solid var(--hair);
     border-radius:var(--radius-md);
@@ -237,6 +238,7 @@
     -webkit-tap-highlight-color:transparent;
   }
   .type-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:transparent; }
+  .type-card:focus-visible{outline:3px solid var(--blue);outline-offset:4px;}
   .type-card:active{ transform:translateY(-1px); }
   .type-card .icon-badge{
     width:48px; height:48px; border-radius:50%;
@@ -1875,23 +1877,22 @@ function nameWithBreak(name){
   return points[name] || name;
 }
 
+const guidePaths = {"egging":"eging","ajing":"ajing","mebaring":"mebaring","seabass":"seabass","light_shore_jigging":"light-shore-jigging","shore_jigging":"shore-jigging","chinning":"chinning","rockfish":"rockfish","bass":"bass","sabiki":"sabiki","nage":"surf-casting","tairaba":"tairaba","ikametaru":"ikametaru","bachikon":"bachikon"};
+
 function renderTypeGrid(){
   typeGrid.innerHTML = fishingTypes.map(t => `
-    <button class="type-card" data-id="${t.id}">
+    <a class="type-card" href="${guidePaths[t.id]}/">
       <div class="icon-badge"><img src="${icons[t.icon] || icons.seabass}" alt="${t.name}のアイコン" loading="lazy"></div>
       <div class="body">
         <div class="name">${nameWithBreak(t.name)}</div>
         <div class="fish">対象魚：${t.targetFish}</div>
       </div>
-      <span class="more">詳しく見る
+      <span class="more">初心者ガイドを見る
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </span>
-    </button>
+    </a>
   `).join('');
 
-  typeGrid.querySelectorAll('.type-card').forEach(card => {
-    card.addEventListener('click', () => openDetail(card.dataset.id));
-  });
 }
 
 
