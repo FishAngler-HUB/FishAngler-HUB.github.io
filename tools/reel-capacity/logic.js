@@ -5,3 +5,15 @@ export function calculateCapacity({basis,referenceSize,referenceLength,targetSiz
 export function calculateBacking({basis,referenceSize,referenceLength,targetSize,targetLength,backingSize}){const capacity=sizeFactor(basis,referenceSize)*Number(referenceLength);const topUsed=sizeFactor(basis,targetSize)*Number(targetLength);const remaining=capacity-topUsed;const maximumTopLength=capacity/sizeFactor(basis,targetSize);if(remaining<0)return{status:'over',capacity,topUsed,remaining,maximumTopLength,precision:basis==='diameter'?'higher':'standard'};if(Math.abs(remaining)<1e-9)return{status:'none',capacity,topUsed,remaining:0,backingLength:0,maximumTopLength,precision:basis==='diameter'?'higher':'standard'};return{status:'ok',capacity,topUsed,remaining,backingLength:remaining/sizeFactor(basis,backingSize),maximumTopLength,precision:basis==='diameter'?'higher':'standard'};}
 export function roundMeters(value){if(value<10)return Math.round(value*10)/10;return Math.round(value);}
 
+
+// Nylon standard diameters: Sunline Machinegun Cast manufacturer specifications.
+export const NYLON_DIAMETERS={1:.165,1.25:.190,1.5:.205,2:.235,2.5:.260,3:.285,3.5:.310,4:.330,4.5:.350,5:.370};
+export function calculateNylonBacking({referenceSize,referenceLength,targetSize,targetLength,nylonReferenceSize,nylonReferenceLength,backingSize}){
+ const values=[referenceSize,referenceLength,targetSize,targetLength,nylonReferenceLength].map(Number);
+ if(values.some(x=>!Number.isFinite(x)||x<=0)||!NYLON_DIAMETERS[nylonReferenceSize]||!NYLON_DIAMETERS[backingSize])throw new Error('Invalid backing inputs');
+ const maximumTopLength=Number(referenceSize)*Number(referenceLength)/Number(targetSize);
+ const remainingFraction=1-Number(targetLength)/maximumTopLength;
+ if(remainingFraction< -1e-9)return{status:'over',maximumTopLength,precision:'standard'};
+ if(Math.abs(remainingFraction)<=1e-9)return{status:'none',maximumTopLength,backingLength:0,precision:'standard'};
+ return{status:'ok',maximumTopLength,backingLength:Number(nylonReferenceLength)*(NYLON_DIAMETERS[nylonReferenceSize]/NYLON_DIAMETERS[backingSize])**2*remainingFraction,precision:'standard'};
+}
