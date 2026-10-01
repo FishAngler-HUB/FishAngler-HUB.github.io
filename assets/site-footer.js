@@ -19,8 +19,8 @@
   footer.innerHTML='<div class="global-footer__inner"><div class="global-footer__main">'+
     '<div class="global-footer__brand"><strong>釣りタックルナビ</strong><p>釣りを始めたい初心者が、釣り方に合うロッド・リール・ラインなどを一度に確認できる道具ガイドです。</p><small>運営：ぐれまる</small></div>'+
     '<nav class="global-footer__nav" aria-label="フッターナビゲーション">'+
-      '<section class="global-footer__group global-footer__group--tackle"><h2>釣りタックル</h2><ul class="global-footer__links">'+guideLinks+'</ul></section>'+
-      '<section class="global-footer__group"><h2>釣り便利ツール</h2><ul class="global-footer__links global-footer__tools">'+toolItems+'</ul></section>'+
+      '<section class="global-footer__group global-footer__group--tackle"><h2><a href="'+url('')+'">釣りタックル</a></h2><ul class="global-footer__links">'+guideLinks+'</ul></section>'+
+      '<section class="global-footer__group"><h2><a href="'+url('tools/')+'">釣り便利ツール</a></h2><ul class="global-footer__links global-footer__tools">'+toolItems+'</ul></section>'+
       '<section class="global-footer__group"><h2>サイト情報</h2><ul class="global-footer__links">'+
         '<li><a href="'+url('about.html')+'">このサイトについて</a></li><li><a href="'+url('privacy.html')+'">プライバシーポリシー</a></li><li><a href="'+url('disclaimer.html')+'">免責事項</a></li></ul></section>'+
     '</nav></div><div class="global-footer__bottom">© 2026 釣りタックルナビ</div></div>';
