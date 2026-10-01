@@ -283,3 +283,6 @@ body{background:var(--sky-2);-webkit-font-smoothing:antialiased;overflow-x:hidde
   .guide-notes{padding:15px 16px}
 }
 
+
+/* Reel calculator: readable back-button text on navy. */
+#reelForm .back-button{color:#fff}
